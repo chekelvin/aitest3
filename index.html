@@ -24,7 +24,7 @@
         <!-- Header -->
         <div class="bg-indigo-700 p-8 text-white text-center">
             <h1 class="text-2xl font-bold tracking-tight">MICE 產業 AI 應用力評估</h1>
-            <p class="text-indigo-200 mt-2 text-sm">測測你在會展策劃中的「AI 智慧指數」</p>
+            <p class="text-indigo-200 mt-2 text-sm">提升策劃效率，測測你的「AI 協作潛力」</p>
         </div>
 
         <!-- Content Area -->
@@ -34,7 +34,7 @@
             <div id="step-start" class="step active space-y-6">
                 <div class="bg-indigo-50 p-4 rounded-xl flex items-center gap-4 border border-indigo-100">
                     <i data-lucide="clipboard-check" class="w-10 h-10 text-indigo-500"></i>
-                    <p class="text-sm text-indigo-900 leading-relaxed font-medium">本測驗將評估您在專案規劃、設計創意、行銷及執行階段對 AI 工具的運用能力。</p>
+                    <p class="text-sm text-indigo-900 leading-relaxed font-medium">本測驗旨在了解員工如何平衡傳統專業經驗與 AI 新科技，優化會展活動流程。</p>
                 </div>
 
                 <div class="space-y-4">
@@ -67,7 +67,7 @@
                 </div>
 
                 <button onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-indigo-200 transition-all transform hover:scale-[1.01] flex items-center justify-center gap-2">
-                    進入測驗 <i data-lucide="chevron-right" size="20"></i>
+                    開始測驗 <i data-lucide="chevron-right" size="20"></i>
                 </button>
             </div>
 
@@ -144,92 +144,93 @@
 
         const questions = [
             {
-                question: "當你需要為一場新的醫療器材展撰寫 30 頁的企劃書大綱時，你會怎麼做？",
+                question: "當你需要為一場新的醫療器材展撰寫企劃書大綱時，你的首選做法是？",
                 options: [
-                    { text: "完全手寫，參考過去公司的範本", score: 0 },
-                    { text: "先用 ChatGPT 生成框架，再由自己填入細節", score: 10 },
-                    { text: "利用 AI 生成完整草案，並要求它模擬政府標案的口吻修正", score: 15 },
-                    { text: "不知道 AI 可以幫忙寫企劃書", score: 0 }
+                    { text: "調閱公司過往成功的醫療展範本，手動調整結構以確保符合傳統格式", score: 5 },
+                    { text: "利用 AI 生成多個不同角度的框架，再結合個人專業經驗篩選與填入細節", score: 15 },
+                    { text: "與團隊成員召開腦力震盪會議，手動筆記整理出初版企劃大綱", score: 8 },
+                    { text: "在網路上搜尋相關標案資料，複製通用結構進行修改", score: 0 }
                 ]
             },
             {
-                question: "客戶要求在 1 小時內提供三個不同風格的攤位視覺概念（Moodboard），你的做法是？",
+                question: "客戶要求在極短時間內提供三個不同風格的攤位設計概念（Moodboard）：",
                 options: [
-                    { text: "在 Pinterest 或 Google 找圖並拼貼", score: 5 },
-                    { text: "使用 Midjourney 或 DALL-E 根據關鍵字生成獨一無二的概念圖", score: 15 },
-                    { text: "告知客戶時間太短，無法提供", score: 0 },
-                    { text: "自己用 Photoshop 趕工做簡單合成", score: 5 }
+                    { text: "在專業素材庫（如 Pinterest/Shutterstock）進行關鍵字檢索並拼貼組合", score: 5 },
+                    { text: "使用生成式 AI 根據品牌色系與展覽主題，快速產出多風格的原創視覺概念", score: 15 },
+                    { text: "聯繫長期合作的設計師，請對方在時效內提供初步的手稿或參考圖", score: 10 },
+                    { text: "使用公司現有的標準攤位 3D 圖進行微調後提供", score: 0 }
                 ]
             },
             {
-                question: "活動結束後有 500 份出席者的開放式問卷回饋，你需要快速總結建議：",
+                question: "活動結束後面對上百份出席者的開放式意見回饋，你如何提煉核心建議？",
                 options: [
-                    { text: "逐一閱讀並手動分類關鍵字", score: 0 },
-                    { text: "將資料餵給 Claude 或 ChatGPT 進一步分析情緒與具體改善點", score: 15 },
-                    { text: "只看前 20 份作為代表性結論", score: 0 },
-                    { text: "使用 Excel 的篩選功能做基礎統計", score: 5 }
+                    { text: "隨機抽樣 50 份意見進行深度閱讀，以此代表整體趨勢", score: 5 },
+                    { text: "將所有數據餵給 AI，要求其進行情感分析並分類具體的改善建議點", score: 15 },
+                    { text: "使用 Excel 的篩選與關鍵字統計功能，手動標註常見的正面與負面詞彙", score: 10 },
+                    { text: "請實習生或助理逐一閱讀並總結出一份摘要報告", score: 8 }
                 ]
             },
             {
-                question: "你需要將一份中文的展覽手冊翻譯成專業的英文與日文：",
+                question: "你需要將一份涉及精密技術的展覽手冊快速翻譯成多國語言：",
                 options: [
-                    { text: "使用 Google 翻譯並直接貼上", score: 5 },
-                    { text: "請翻譯公司處理，但需要等待 3 天", score: 0 },
-                    { text: "使用 DeepL 或 AI 工具翻譯，並要求 AI 以「會展產業術語」進行校對", score: 15 },
-                    { text: "自己憑印象翻譯", score: 0 }
+                    { text: "使用專業 CAT (電腦輔助翻譯) 軟體，確保專有名詞的一致性", score: 10 },
+                    { text: "先以 AI 進行情境翻譯，再設定 AI 扮演該領域專家進行多輪術語校對", score: 15 },
+                    { text: "使用 Google 翻譯後，交由公司內部英語較好的同事協助潤飾", score: 5 },
+                    { text: "直接外包給翻譯社，並要求其在兩天內回傳初稿", score: 0 }
                 ]
             },
             {
-                question: "關於「提示詞工程 (Prompt Engineering)」，你是否了解其重要性？",
+                question: "在與 AI 對話時，如果你得到的結果不理想，你通常會：",
                 options: [
-                    { text: "聽過，但不確定怎麼操作", score: 5 },
-                    { text: "非常了解，知道如何使用「角色設定」、「限制條件」來優化結果", score: 15 },
-                    { text: "沒聽過，我都隨便問問", score: 0 }
+                    { text: "嘗試改變問法，使用角色設定或具體限制條件來引導 AI", score: 15 },
+                    { text: "認為這項任務 AI 目前還無法勝任，轉而回歸傳統的人工處理方式", score: 0 },
+                    { text: "尋找網路上現成的 Prompt (提示詞) 模板，直接套用測試", score: 8 },
+                    { text: "多按幾次「重新生成」，看看 AI 是否能運氣好產出較佳內容", score: 5 }
                 ]
             },
             {
-                question: "如果你需要製作一個 15 頁的贊助商招商簡報（Pitch Deck）：",
+                question: "若要製作一份面向大型贊助商的 Pitch Deck (招商簡報)：",
                 options: [
-                    { text: "打開 PowerPoint 從空白頁開始排版", score: 0 },
-                    { text: "使用 Gamma 或 Tome 等 AI 工具快速生成內容與排版初稿", score: 15 },
-                    { text: "請設計同事幫忙排版", score: 5 },
-                    { text: "使用現成的舊 PPT 範本改字", score: 5 }
+                    { text: "選用高質感的公司 PPT 模板，並手動整理過往數據進行排版", score: 5 },
+                    { text: "使用 AI 簡報工具（如 Gamma）快速生成內容架構與視覺佈局，再進行深度細調", score: 15 },
+                    { text: "將內容重點交給美編設計，由專業設計師全權負責視覺呈現", score: 10 },
+                    { text: "參考業界知名展覽的簡報樣式，手動模仿其配色與圖表結構", score: 5 }
                 ]
             },
             {
-                question: "需要為展覽在 FB/IG 上連續發布 7 天的行銷貼文，你的策略是？",
+                question: "需要為期一個月的展覽行銷，規劃每日不同主題的社群貼文：",
                 options: [
-                    { text: "每天當場想當天發什麼", score: 0 },
-                    { text: "使用 AI 生成一週的內容日曆，並要求它根據不同受眾調整口吻", score: 15 },
-                    { text: "參考競爭對手的文案，稍微改寫", score: 5 },
-                    { text: "全部交給外包公關公司，不參與內容製作", score: 0 }
+                    { text: "分析過往互動率最高的貼文，並手動排程類似的內容", score: 8 },
+                    { text: "請 AI 生成完整的內容日曆，並要求它針對 FB、IG、LinkedIn 不同的語氣進行改寫", score: 15 },
+                    { text: "建立一個固定的發文模板，每日手動填入當天活動亮點即可", score: 5 },
+                    { text: "將行銷預算撥給公關外包，由外包團隊負責內容策劃與發布", score: 0 }
                 ]
             },
             {
-                question: "活動現場需要一段 30 秒的開場快剪影片：",
+                question: "現場活動需要一段 30 秒的動態過場影片，但設計部目前忙不過來：",
                 options: [
-                    { text: "請攝影剪輯師連夜趕工，可能來不及", score: 0 },
-                    { text: "使用 AI 影片工具（如 Runway 或 Canva AI）快速合成過場動畫與特效", score: 15 },
-                    { text: "用簡單的投影片播放照片代替", score: 5 },
-                    { text: "不安排開場影片", score: 0 }
+                    { text: "使用 AI 影片工具（如 Canva AI 或 Runway）快速合成素材與動效", score: 15 },
+                    { text: "使用高質感的靜態照片，配上音樂製作成投影片式影片", score: 5 },
+                    { text: "購買現成的影音素材模版，手動替換字體與商標", score: 10 },
+                    { text: "放棄使用影片，改以主持人搭配靜態背板進行開場", score: 0 }
                 ]
             },
             {
-                question: "在長達 2 小時的跨國籌備會議後，你需要整理詳細紀錄：",
+                question: "面對籌備會議中大量、瑣碎的發言記錄，你的整理方式是：",
                 options: [
-                    { text: "邊聽錄音邊打字，耗費 3 小時整理", score: 0 },
-                    { text: "使用 Fireflies 或 Otter 等 AI 自動轉錄並總結待辦事項", score: 15 },
-                    { text: "只憑印象寫下幾個大點", score: 5 },
-                    { text: "請行政同事幫忙整理", score: 5 }
+                    { text: "指派專人進行即時打字紀錄，並在會後耗時手動彙整重點", score: 10 },
+                    { text: "利用 AI 轉錄工具錄音，會後一鍵生成摘要、決議事項與待辦清單", score: 15 },
+                    { text: "會議中錄音，會後由自己或秘書反覆重聽並寫下核心結論", score: 5 },
+                    { text: "僅憑個人印象在會後快速記下幾個主要大點，不進行完整紀錄", score: 0 }
                 ]
             },
             {
-                question: "面對展覽大量重複的參加者查詢（如交通、時間），你會？",
+                question: "展覽高峰期，官網收到大量關於交通、入場與票價的重複查詢：",
                 options: [
-                    { text: "安排人工客服逐一回覆 Email", score: 0 },
-                    { text: "訓練一個 AI Chatbot 並掛載在官網/LINE，處理 80% 的常見問題", score: 15 },
-                    { text: "在網站放一個超長的 PDF FAQ 讓使用者自己找", score: 5 },
-                    { text: "不處理這類詢問，等現場再說", score: 0 }
+                    { text: "在官網醒目位置放置詳細的 PDF FAQ 指南，引導使用者自行查閱", score: 8 },
+                    { text: "導入 AI 客服機器人，並餵入展覽手冊數據，處理 80% 的即時問答", score: 15 },
+                    { text: "安排人工客服輪班，確保每一則訊息都能由專人進行「有溫度」的回覆", score: 10 },
+                    { text: "設定簡單的關鍵字自動回覆（如輸入「時間」回覆固定文字）", score: 5 }
                 ]
             }
         ];
@@ -324,22 +325,22 @@
             
             if (percentage >= 80) {
                 level = "AI 領航員 (Expert)";
-                desc = "你已經是會展界的 AI 高手！能精準利用工具提升產值。";
-                advice = "作為領軍人物，建議開始研究 AI 自動化工作流（如 Zapier/Make 連接 AI），並在團隊中推動 AI SOP 的建立。";
+                desc = "你對 AI 的掌握程度令人驚艷！能精準利用 AI 加速繁瑣流程，讓創意發揮最大化。";
+                advice = "作為團隊領先者，建議開始推動「AI 標準作業流程 (SOP)」，或探索 AI Agent 自動化工作流。";
                 icon = '<i data-lucide="zap" class="w-12 h-12 text-yellow-500"></i>';
-                focus = "跨工具自動化流程";
+                focus = "跨工具自動化與團隊賦能";
             } else if (percentage >= 50) {
                 level = "AI 實踐者 (Practitioner)";
-                desc = "你已經開始使用 AI 輔助工作，但還有很大的發揮空間。";
-                advice = "建議深化 Prompt 技巧，嘗試將 AI 應用於跨部門協作（如設計與項目的對接）。您可以多嘗試多模態工具來進一步縮短製作週期。";
+                desc = "你已經成功跨出 AI 第一步，並能在部分核心場景靈活切換傳統與 AI 做法。";
+                advice = "建議深化提示詞工程（Prompt Engineering），嘗試將 AI 應用於跨部門協作，如輔助數據分析或視覺審查。";
                 icon = '<i data-lucide="award" class="w-12 h-12 text-blue-500"></i>';
-                focus = "多樣化 Prompt 技巧";
+                focus = "進階 Prompt 技巧與多模態應用";
             } else {
-                level = "AI 新手 (Novice)";
-                desc = "你對 AI 的潛力還在探索階段，目前多依賴傳統方式工作。";
-                advice = "建議從每日的小任務開始（如讓 AI 潤飾回信、整理會議筆記）。先建立「先問 AI」的習慣，你會發現工作效率顯著提升。";
+                level = "AI 潛力新秀 (Rising Star)";
+                desc = "你目前的做法偏向傳統專業穩定，對於 AI 的賦能潛力仍有很大的提升空間。";
+                advice = "別害怕 AI 會取代專業，它更像是你的超級助手。建議從最簡單的「AI 潤飾文案」與「會議摘要」開始練習。";
                 icon = '<i data-lucide="book-open" class="w-12 h-12 text-green-500"></i>';
-                focus = "基礎指令與對話實作";
+                focus = "日常工作流的 AI 替代方案";
             }
 
             document.getElementById('result-icon').innerHTML = icon;
